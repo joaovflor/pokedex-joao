@@ -1,0 +1,128 @@
+@use 'variables' as *;
+
+.pokemon-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $sp-xs;
+  padding: $sp-md;
+  background: #F0F3FF;
+  border: 1px solid $border;
+  border-radius: $r-lg;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform $t-base, box-shadow $t-base, border-color $t-base;
+
+  &::before {
+    content: '';
+    position: absolute;
+    right: -18px;
+    bottom: -18px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.04);
+    pointer-events: none;
+  }
+
+  &:hover,
+  &:focus-visible {
+    transform: translateY(-6px);
+    outline: none;
+  }
+
+  &:focus-visible {
+    box-shadow: 0 0 0 3px $accent;
+  }
+
+  &__number {
+    align-self: flex-end;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: $text-muted;
+    letter-spacing: 0.04em;
+    line-height: 1;
+  }
+
+  &__image-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: $sp-xs 0;
+  }
+
+  &__image {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    transition: transform $t-slow;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+
+    @media (min-width: $bp-md) {
+      width: 108px;
+      height: 108px;
+    }
+
+    &[data-no-sprite] {
+      opacity: 0.2;
+      filter: none;
+    }
+}
+
+  &:hover &__image {
+    transform: scale(1.12) translateY(-3px);
+  }
+
+  &__name {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-align: center;
+    text-transform: capitalize;
+    color: $text;
+    letter-spacing: 0.01em;
+    margin-top: 2px;
+
+    @media (min-width: $bp-md) {
+      font-size: 0.875rem;
+    }
+  }
+
+  &__types {
+    display: flex;
+    gap: $sp-md;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 2px;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+}
+
+.type-badge {
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  letter-spacing: 0.04em;
+}
+
+@each $type, $color in $type-colors {
+  .pokemon-card--#{$type} {
+
+    &:hover,
+    &:focus-visible {
+      border-color: rgba($color, 0.55);
+      box-shadow: 0 14px 28px rgba($color, 0.18);
+    }
+  }
+
+  .type-badge--#{$type} {
+    color: rgba($color, 0.8);
+  }
+}

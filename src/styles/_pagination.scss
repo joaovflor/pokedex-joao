@@ -1,0 +1,71 @@
+@use 'variables' as *;
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $sp-lg;
+  padding: $sp-2xl 0 $sp-xl;
+  flex-wrap: wrap;
+
+  &__pages {
+    display: flex;
+    align-items: center;
+    gap: $sp-xs;
+  }
+
+  &__btn {
+    background: none;
+    border: none;
+    color: $text-muted;
+    font-size: 0.875rem;
+    font-family: $font;
+    font-weight: 500;
+    padding: 6px $sp-sm;
+    border-radius: $r-sm;
+    transition: color $t-fast;
+    letter-spacing: 0.01em;
+
+    &:hover:not([disabled]) {
+      color: $text;
+    }
+
+    &[disabled] {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+  }
+
+  &__page {
+    min-width: 36px;
+    height: 36px;
+    padding: 0 6px;
+    border-radius: $r-md;
+    background: none;
+    border: none;
+    color: $text-muted;
+    font-size: 0.875rem;
+    font-family: $font;
+    transition: color $t-fast;
+
+    &:hover {
+      color: $text;
+    }
+
+    &--active {
+      background: $text;
+      color: $bg;
+      font-weight: 600;
+      cursor: default;
+      pointer-events: none;
+    }
+  }
+
+  &__ellipsis {
+    color: $text-muted;
+    min-width: 32px;
+    text-align: center;
+    user-select: none;
+    font-size: 0.875rem;
+  }
+}

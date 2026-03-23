@@ -1,0 +1,40 @@
+@use 'variables' as *;
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba($bg, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid $border;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $sp-md;
+    padding-top: $sp-md;
+    padding-bottom: $sp-md;
+  }
+
+  &__brand {
+    display: flex;
+    align-items: center;
+    gap: $sp-sm;
+    flex-shrink: 0;
+    color: $accent;
+  }
+
+  &__logo {
+    width: 124px;
+    height: 39px;
+    flex-shrink: 0;
+  }
+
+  &__search {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+}

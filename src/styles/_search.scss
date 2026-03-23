@@ -1,0 +1,50 @@
+@use 'variables' as *;
+
+.search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 720px;
+  margin-bottom: $sp-xl;
+
+  &__icon {
+    position: absolute;
+    right: $sp-md;
+    width: 17px;
+    height: 17px;
+    color: $text-muted;
+    pointer-events: none;
+    flex-shrink: 0;
+  }
+
+  &__input {
+    width: 100%;
+    min-width: 0;
+    padding: 10px calc(#{$sp-md} + 17px + #{$sp-sm}) 10px $sp-md;
+    background: $surface;
+    border: 1px solid $border;
+    border-radius: $r-full;
+    color: $text;
+    font-size: 0.875rem;
+    font-family: $font;
+    transition: border-color $t-base, box-shadow $t-base;
+    appearance: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    &::placeholder {
+      color: $text-muted;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $accent;
+      box-shadow: 0 0 0 3px rgba($accent, 0.15);
+    }
+  }
+}

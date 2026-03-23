@@ -1,0 +1,64 @@
+@use 'variables' as *;
+
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 $sp-md;
+
+  @media (min-width: $bp-md) {
+    padding: 0 $sp-xl;
+  }
+
+  @media (min-width: $bp-xl) {
+    padding: 0 $sp-3xl;
+  }
+}
+
+.main {
+  padding: $sp-xl 0 $sp-3xl;
+  min-height: calc(100vh - 72px);
+}
+
+.pokemon-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, auto);
+  gap: $sp-md;
+
+  @media (min-width: $bp-sm) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (min-width: $bp-md) {
+    grid-template-columns: repeat(4, 1fr);
+    gap: $sp-lg;
+  }
+
+  @media (min-width: $bp-lg) {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  @media (min-width: $bp-xl) {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+.no-results {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: $sp-3xl $sp-md;
+
+  &__title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: $text-muted;
+    margin-bottom: $sp-sm;
+  }
+
+  &__hint {
+    font-size: 0.875rem;
+    color: $text-muted;
+    opacity: 0.6;
+  }
+}

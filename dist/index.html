@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokédex</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" crossorigin src="/assets/index-gMVMLFN8.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BzSFJtsd.css">
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header__container">
+        <div class="header__brand">
+          <svg
+            class="header__logo"
+            viewBox="0 0 40 40"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <circle cx="20" cy="20" r="17" stroke="currentColor" stroke-width="2.5" />
+            <path d="M3 20h34" stroke="currentColor" stroke-width="2.5" />
+            <circle cx="20" cy="20" r="5" fill="currentColor" />
+            <circle cx="20" cy="20" r="2.5" fill="#0d0d1a" />
+          </svg>
+          <h1 class="header__title">Pokédex</h1>
+        </div>
+        <div id="search-container" class="header__search"></div>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="container">
+        <div id="filters-container"></div>
+        <p id="results-info" class="results-info" aria-live="polite"></p>
+        <div
+          id="pokemon-grid"
+          class="pokemon-grid"
+          role="list"
+          aria-label="Lista de Pokémon"
+        ></div>
+        <div id="pagination-container"></div>
+      </div>
+    </main>
+
+  </body>
+</html>

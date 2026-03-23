@@ -1,0 +1,71 @@
+@use 'variables' as *;
+
+@keyframes skeleton-shimmer {
+  0%   { background-position: -600px 0; }
+  100% { background-position:  600px 0; }
+}
+
+// Base skeleton element
+.skeleton {
+  display: block;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.04) 25%,
+    rgba(255, 255, 255, 0.1)  50%,
+    rgba(255, 255, 255, 0.04) 75%
+  );
+  background-size: 1200px 100%;
+  animation: skeleton-shimmer 1.8s ease-in-out infinite;
+  border-radius: $r-sm;
+
+  &--id {
+    width: 36px;
+    height: 11px;
+    align-self: flex-end;
+  }
+
+  &--name {
+    width: 75%;
+    height: 13px;
+  }
+
+  &--circle {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+
+    @media (min-width: $bp-md) {
+      width: 108px;
+      height: 108px;
+    }
+  }
+
+  &--badge {
+    width: 52px;
+    height: 22px;
+    border-radius: $r-full;
+  }
+}
+
+// Override card behavior for skeleton cards
+.pokemon-card--skeleton {
+  pointer-events: none;
+  cursor: default;
+  border-color: $border;
+  background: $surface;
+
+  &:hover,
+  &:focus-visible {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .pokemon-card__image-wrapper {
+    margin: $sp-xs 0;
+  }
+
+  .pokemon-card__types {
+    display: flex;
+    justify-content: center;
+  }
+}
